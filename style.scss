@@ -1,0 +1,156 @@
+//https://sass-lang.com/guide/
+
+
+$font-stack: Helvetica,
+sans-serif;
+$bg-color: #3b3b3b;
+$dark-card-color: #292929;
+$text-color: #e3e3e3;
+$button-size: 1.5em;
+
+@mixin flexCenter() {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $bg-color;
+}
+
+
+main {
+    width: 100%;
+    height: 100vh;
+    @include flexCenter();
+}
+
+.crop-div {
+    display: block;
+    background-color: $dark-card-color;
+    border-radius: 24px;
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.25);
+
+    width: 40%;
+    padding: 15px 25px;
+}
+
+.canvas-div {
+    width: 100%;
+    @include flexCenter();
+    border: 1px solid #000;
+    margin: 0 0 17px 0;
+    aspect-ratio: 16 / 9;
+
+
+    #crop_can {
+        display: block;
+        max-width: 100%;
+        
+    }
+}
+
+#choose_f {
+    display: none;
+}
+
+@mixin neonButton($button-color: #04fa9d) {
+    color: $button-color;
+    border: 1px solid $button-color;
+    border-radius: 18px;
+    padding: 9px 8px;
+    background-color: transparent;
+    font-family: $font-stack;
+    font-size: 0.9em;
+    font-weight: 100;
+
+    cursor: pointer;
+
+
+    &:hover {
+        box-shadow: 0 0 4px 4px $button-color;
+        text-shadow: 0 0 4px $button-color, 0 0 5px $button-color, 0 0 6px $button-color;
+
+    }
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 40px;
+}
+
+.chooseFile {
+    @include neonButton();
+
+}
+
+.zoom-grid {
+    display: grid;
+    grid-template-areas:
+        'button-m text button-p';
+    grid-template-columns: $button-size auto $button-size;
+
+    grid-gap: 30px;
+}
+
+
+@mixin fixedSqare($size: 1em) {
+    width: $size;
+    height: $size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.zoom-btn-m {
+    @include fixedSqare($button-size);
+}
+
+.zoom-btn-p {
+    @include fixedSqare($button-size);
+
+}
+
+.zoom-btn-div-m {
+    grid-area: button-m;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.zoom-btn-div-p {
+    grid-area: button-p;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.zoom-text {
+    grid-area: text;
+    @include flexCenter();
+    color: $text-color;
+
+}
+
+
+
+.download-btn {
+    display: block;
+    @include neonButton();
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: 300;
+}
+
+

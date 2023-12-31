@@ -1,0 +1,11 @@
+{
+  "name": "javascript-cropper",
+  "module": "main.js",
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "type": "module",
+  "dependencies": {
+    "cropperjs": "^1.6.1"
+  }
+}
